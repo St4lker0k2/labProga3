@@ -6,9 +6,11 @@ import Locations.Mood;
 import Locations.PlanLocation;
 
 public final class Bosse extends Human {
-    public Bosse(String name, Location location, String familyConnect, Mood mood) {
+    private final PlanLocation planLocation;
+    public Bosse(String name, Location location, String familyConnect, Mood mood, PlanLocation planLocation) {
         super(name, location, familyConnect, mood);
+        this.planLocation = planLocation;
     }
     public void decidePlans(){
-        EventBus.publish(new EventPlans(this, PlanLocation.CHILDCAMP,Math.random()<0.2));}
+        EventBus.publish(new EventPlans(this, planLocation));}
 }

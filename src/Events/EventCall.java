@@ -32,7 +32,7 @@ public class EventCall extends Event{
     }
 
     private void reactDefault(Human speaker){
-        System.out.printf("%s: Мама позвала к себе %s %s", speaker.getName(), getActor().getFamilyConnect(), getActor().getName());
+        System.out.printf("%s: Мама позвала к себе %s %s\n", speaker.getName(), getActor().getFamilyConnect(), getActor().getName());
     }
 
     @Override

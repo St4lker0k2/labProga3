@@ -3,23 +3,18 @@ import Characters.Human;
 import Locations.PlanLocation;
 
 public class EventPlans extends Event {
-    private final boolean solution;
     private final PlanLocation planLocation;
 
-    public EventPlans(Human actor, PlanLocation planLocation,boolean solution){
+    public EventPlans(Human actor, PlanLocation planLocation){
         super(actor, EventType.PLANS);
-        this.solution = solution;
         this.planLocation = planLocation;}
 
     @Override
     public void reactEvent(Human speaker) {
-        if (isSolution()) {
-            System.out.printf("мой(моя) %s %s уезжает в(на) %s\n",getActor().getFamilyConnect(), getActor().getName(), this.planLocation.getNameLocation());
+        if (planLocation == PlanLocation.HOME) {
+            System.out.printf("%s: Мой(моя) %s %s решил(а) остаться дома\n", speaker.getName(), getActor().getFamilyConnect(), getActor().getName());
         }else {
-            System.out.printf("мой(моя) %s %s решил(а) остаться дома\n", getActor().getFamilyConnect(), getActor().getName());
+            System.out.printf("%s: Мой(моя) %s %s уезжает в(на) %s\n", speaker.getName(), getActor().getFamilyConnect(), getActor().getName(), this.planLocation.getNameLocation());
         }}
-
-    public boolean isSolution() {
-        return solution;}
 }
 

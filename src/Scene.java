@@ -4,6 +4,7 @@ import Events.EventType;
 import Dialogues.Dialogue;
 import Locations.Location;
 import Locations.Mood;
+import Locations.PlanLocation;
 
 public class Scene {
     private final Mother mother;
@@ -26,14 +27,14 @@ public class Scene {
         mother.call(frekenBok);
     }
     public Scene(){
-        Malysh malysh = new Malysh("Малыш", Location.MALYSHS_ROOM, "", Mood.BAD);
-        this.mother = new Mother("мама", Location.MALYSHS_ROOM, "", null);
+        Malysh malysh = new Malysh("Малыш", Location.MALYSHS_ROOM, "", Mood.GOOD);
+        this.mother = new Mother("мама", Location.MALYSHS_ROOM, "", null, PlanLocation.STEAMBOAT);
         this.father = new Father("папа", Location.KITCHEN, "", null);
-        Carlson carlson = new Carlson("Карлсон", Location.MALYSHS_ROOM, "друг", Mood.BAD);
-        this.uncle = new Uncle("Юлиус", null, "дядя", Mood.BAD);
+        Carlson carlson = new Carlson("Карлсон", Location.MALYSHS_ROOM, "друг", Mood.GOOD);
+        this.uncle = new Uncle("Юлиус", null, "дядя", Mood.GOOD);
         this.frekenBok = new FrekenBok("Фрэкен Бок", null, "присмотрщица", null);
-        this.betan = new Betan("Бетан", Location.LIVING_ROOM, "брат", null);
-        this.bosse = new Bosse("Боссе", Location.LIVING_ROOM, "сестра", null);
+        this.betan = new Betan("Бетан", Location.LIVING_ROOM, "брат", null, PlanLocation.CHILDCAMP);
+        this.bosse = new Bosse("Боссе", Location.LIVING_ROOM, "сестра", null, PlanLocation.CHILDCAMP);
 
         Dialogue.setInterlocutors(malysh, carlson);
         EventBus.addReactor(EventType.CALL, malysh);

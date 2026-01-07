@@ -12,7 +12,6 @@ public final class Carlson extends Human implements DialogueReactor {
 
     @Override
     public void react(Event event) {
-        if (event.getActor() instanceof FrekenBok){
-            event.reactEvent(this);}
+        event.reactEvent(this);
     }
 }

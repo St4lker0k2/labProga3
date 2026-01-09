@@ -2,6 +2,7 @@ import Characters.*;
 import Events.EventBus;
 import Events.EventType;
 import Dialogues.Dialogue;
+import Exceptions.InvalidNameException;
 import Locations.Location;
 import Locations.Mood;
 import Locations.PlanLocation;
@@ -15,8 +16,13 @@ public class Scene {
     private final Uncle uncle;
 
     public static void main(String[] args) {
-        Scene scene = new Scene();
-        scene.scenario();}
+        try {
+            Scene scene = new Scene();
+            scene.scenario();
+        }catch (InvalidNameException e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public void scenario(){ //Сценарные методы
         mother.decidePlans();
@@ -36,7 +42,7 @@ public class Scene {
         this.betan = new Betan("Бетан", Location.LIVING_ROOM, "брат", null, PlanLocation.CHILDCAMP);
         this.bosse = new Bosse("Боссе", Location.LIVING_ROOM, "сестра", null, PlanLocation.CHILDCAMP);
 
-        Dialogue.setInterlocutors(malysh, carlson);
+        Dialogue.setInterlocutors(malysh, mother);
         EventBus.addReactor(EventType.CALL, malysh);
         EventBus.addReactor(EventType.PLANS, malysh);
         EventBus.addReactor(EventType.TALK, carlson);

@@ -19,7 +19,7 @@ public final class SceneFactory {
         Betan betan = new Betan("Бетан", Location.LIVING_ROOM, "брат", Mood.GOOD, PlanLocation.CHILDCAMP);
         Bosse bosse = new Bosse("Боссе", Location.LIVING_ROOM, "сестра", Mood.GOOD, PlanLocation.CHILDCAMP);
 
-        Dialogue.setInterlocutors(malysh, carlson);
+        Dialogue.setInterlocutors(malysh, malysh);
         EventBus.addReactor(EventType.CALL, malysh);
         EventBus.addReactor(EventType.PLANS, malysh);
         EventBus.addReactor(EventType.TALK, carlson);

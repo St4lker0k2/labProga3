@@ -9,7 +9,7 @@ import Locations.Mood;
 import java.util.HashMap;
 import java.util.function.Consumer;
 
-public class EventCall extends Event{
+public final class EventCall extends Event{
     private final HashMap<Class<? extends Human>, Consumer<Human>> actions = new HashMap<>();
 
     public EventCall(Human actor) {

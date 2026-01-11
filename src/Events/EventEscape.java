@@ -4,8 +4,8 @@ import Characters.Human;
 import Dialogues.Dialogue;
 import Locations.Location;
 
-public class EventEscape extends Event{
-    protected EventEscape(Human actor) {
+public final class EventEscape extends Event{
+    EventEscape(Human actor) {
         super(actor, EventType.ESCAPE);
     }
 

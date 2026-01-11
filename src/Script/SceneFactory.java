@@ -8,7 +8,7 @@ import Locations.Location;
 import Locations.Mood;
 import Locations.PlanLocation;
 
-public class SceneFactory {
+public final class SceneFactory {
     public static Scene create(){
         Mother mother = new Mother("мама", Location.MALYSHS_ROOM, "", Mood.GOOD, PlanLocation.STEAMBOAT);
         Father father = new Father("папа", Location.KITCHEN, "", Mood.GOOD);

@@ -8,7 +8,7 @@ import Locations.Mood;
 import java.util.HashMap;
 import java.util.function.Consumer;
 
-public class EventTalk extends Event {
+public final class EventTalk extends Event {
     private final HashMap<Keys, Consumer<Human>> actions = new HashMap<>();
     private final Mood reactSpeaker;
 

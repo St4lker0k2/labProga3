@@ -3,7 +3,7 @@ import Characters.Human;
 import Dialogues.Dialogue;
 import Locations.PlanLocation;
 
-public class EventPlans extends Event {
+public final class EventPlans extends Event {
     private final PlanLocation planLocation;
 
     public EventPlans(Human actor, PlanLocation planLocation){

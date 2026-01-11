@@ -4,6 +4,8 @@ import Exceptions.InvalidNameException;
 import Locations.Location;
 import Locations.Mood;
 
+import java.util.Objects;
+
 public abstract class Human {
     private final String familyConnect;
     private final String name;
@@ -17,6 +19,7 @@ public abstract class Human {
             throw new InvalidNameException(name);
         }
         this.location = location;
+        Objects.requireNonNull(mood, "mood не может быть null");
         this.mood = mood;
     }
 
@@ -25,6 +28,8 @@ public abstract class Human {
     public void setLocation(Location location) {this.location = location;}
 
     public String getName(){return name;}
+
+    public abstract boolean canReact();
 
     private boolean validateName(String name){
         return name.matches("[А-Яа-я]+(([-| ])[А-Яа-я]+)*");

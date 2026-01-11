@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class EventCall extends Event{
-    private final HashMap<Class, Consumer<Human>> actions = new HashMap<>();
+    private final HashMap<Class<? extends Human>, Consumer<Human>> actions = new HashMap<>();
 
     public EventCall(Human actor) {
         super(actor, EventType.CALL);
@@ -19,15 +19,18 @@ public class EventCall extends Event{
     }
 
     private void reactUncleCall(Human speaker){
-        System.out.printf("%s: Кажется, мама пригласила домой %s %s. %s\n", speaker.getName(), getActor().getFamilyConnect(), getActor().getName(),
-                (getActor().getMood() == Mood.GOOD?"Я так рад его приезду. Он такой добрый и весёлый"
-                        :"Снова придётся терпеть его ворчание и крики"));
+        String text = String.format("%s: Кажется, мама пригласила домой %s %s", speaker.getName(), getActor().getFamilyConnect(), getActor().getName()) + switch (getActor().getMood()){
+            case Mood.GOOD -> "Я так рад его приезду. Он такой добрый и весёлый";
+            case Mood.BAD -> "Снова придётся терпеть его ворчание и крики";};
+        System.out.println(text);
     }
 
     private void reactCaretakerCall(Human speaker){
-        System.out.printf("%s: Послушай, %s, моя мама вызвала новую присмотрщицу - %s. %s\n"
-                , speaker.getName(), Dialogue.getInterlocutor(speaker).getName(), getActor().getName(), (speaker.getMood() == Mood.GOOD?"Жду не дождусь встречи с ней! Уверен, мы подружимся"
-                        :"Я так не хочу, чтобы она приезжала. Мне кажется, что она нехороший человек"));
+        String text = String.format("%s: Послушай, %s, моя мама вызвала новую присмотрщицу - %s", speaker.getName(), Dialogue.getInterlocutor(speaker).getName(), getActor().getName())
+        + switch (speaker.getMood()){
+            case Mood.GOOD -> "Жду не дождусь встречи с ней! Уверен, мы подружимся";
+            case Mood.BAD -> "Я так не хочу, чтобы она приезжала. Мне кажется, что она нехороший человек";};
+        System.out.println(text);
         EventBus.publish(new EventTalk(getActor(), speaker.getMood()));
     }
 

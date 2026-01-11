@@ -21,4 +21,9 @@ public final class Mother extends Human {
         person.setLocation(this.getLocation());
         EventBus.publish(new EventCall(person));
     }
+
+    @Override
+    public boolean canReact() {
+        return false;
+    }
 }

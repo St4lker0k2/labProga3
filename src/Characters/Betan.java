@@ -16,4 +16,9 @@ public final class Betan extends Human {
     public void decidePlans(){
         EventBus.publish(new EventPlans(this, planLocation));
     }
+
+    @Override
+    public boolean canReact() {
+        return false;
+    }
 }

@@ -7,4 +7,9 @@ public final class Uncle extends Human {
     public Uncle(String name, Location location, String familyConnect, Mood mood) {
         super(name, location, familyConnect, mood);
     }
+
+    @Override
+    public boolean canReact() {
+        return false;
+    }
 }

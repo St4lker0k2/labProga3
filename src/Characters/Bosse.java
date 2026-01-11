@@ -13,4 +13,9 @@ public final class Bosse extends Human {
     }
     public void decidePlans(){
         EventBus.publish(new EventPlans(this, planLocation));}
+
+    @Override
+    public boolean canReact() {
+        return false;
+    }
 }

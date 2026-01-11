@@ -32,7 +32,7 @@ public class EventTalk extends Event {
                 " и радуешься этому! Нашей дружбе конец! Если мне тут не рады, я улетаю. Прощайте!\n", speaker.getName());
         System.out.printf("*%s вылетел в окно и умчался прочь*\n", speaker.getName());
         speaker.setLocation(Location.ROOF);
-        Dialogue.disconnect(speaker);
+        Dialogue.disconnect();
     }
 
     private void cheerUp(Human speaker) {

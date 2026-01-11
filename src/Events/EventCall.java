@@ -19,14 +19,14 @@ public final class EventCall extends Event{
     }
 
     private void reactUncleCall(Human speaker){
-        String text = String.format("%s: Кажется, мама пригласила домой %s %s", speaker.getName(), getActor().getFamilyConnect(), getActor().getName()) + switch (getActor().getMood()){
+        String text = String.format("%s: Кажется, мама пригласила домой %s %s. ", speaker.getName(), getActor().getFamilyConnect(), getActor().getName()) + switch (getActor().getMood()){
             case Mood.GOOD -> "Я так рад его приезду. Он такой добрый и весёлый";
             case Mood.BAD -> "Снова придётся терпеть его ворчание и крики";};
         System.out.println(text);
     }
 
     private void reactCaretakerCall(Human speaker){
-        String text = String.format("%s: Послушай, %s, моя мама вызвала новую присмотрщицу - %s", speaker.getName(), Dialogue.getInterlocutor(speaker).getName(), getActor().getName())
+        String text = String.format("%s: Послушай, %s, моя мама вызвала новую присмотрщицу - %s. ", speaker.getName(), Dialogue.getInterlocutor(speaker).getName(), getActor().getName())
         + switch (speaker.getMood()){
             case Mood.GOOD -> "Жду не дождусь встречи с ней! Уверен, мы подружимся";
             case Mood.BAD -> "Я так не хочу, чтобы она приезжала. Мне кажется, что она нехороший человек";};

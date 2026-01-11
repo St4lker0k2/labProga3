@@ -1,25 +1,30 @@
 package Characters;
 
 import Exceptions.InvalidNameException;
+import Exceptions.NullLocationException;
+import Exceptions.NullMoodException;
 import Locations.Location;
 import Locations.Mood;
-
-import java.util.Objects;
 
 public abstract class Human {
     private final String familyConnect;
     private final String name;
     private final Mood mood;
     private Location location;
-    protected Human(String name, Location location, String familyConnect, Mood mood) throws InvalidNameException {
-        this.familyConnect = familyConnect;
-        if (validateName(name)){
-            this.name = name;}
-        else {
+    Human(String name, Location location, String familyConnect, Mood mood) throws InvalidNameException, NullMoodException, NullLocationException {
+
+        if (!validateName(name)){
             throw new InvalidNameException(name);
         }
+        this.name = name;
+        this.familyConnect = familyConnect;
+        if (location == null){
+            throw new NullLocationException(name);
+        }
         this.location = location;
-        Objects.requireNonNull(mood, "mood не может быть null");
+        if (mood == null){
+            throw new NullMoodException(name);
+        }
         this.mood = mood;
     }
 

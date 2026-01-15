@@ -2,7 +2,7 @@ package Events;
 
 import Characters.Human;
 
-public abstract class   Event {
+public abstract class Event {
     private final Human actor;
     private final EventType eventType;
 

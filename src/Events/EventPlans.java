@@ -33,7 +33,7 @@ public final class EventPlans extends Event {
     private String reactCounty(){
         return String.format("кажется, мой(моя) %s %s планирует уехать в(на) %s. ", getActor().getFamilyConnect(), getActor().getName(), planLocation.getNameLocation())
                 + switch (getActor().getMood()){
-            case Mood.GOOD -> "Это так печально. Я бы хотел провести больше времени с ним(ней)";
-            case Mood.BAD -> "Наконец-то я смогу от него(неё) отдохнуть. Ура!";};
+            case GOOD -> "Это так печально. Я бы хотел провести больше времени с ним(ней)";
+            case BAD -> "Наконец-то я смогу от него(неё) отдохнуть. Ура!";};
     }
 }

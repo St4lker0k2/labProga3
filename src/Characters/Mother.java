@@ -7,20 +7,17 @@ import Locations.Mood;
 import Locations.PlanLocation;
 
 public final class Mother extends Human {
-    private final PlanLocation planLocation;
-    public Mother(String name, Location location, String familyConnect, Mood mood, PlanLocation planLocation){
+    public Mother(String name, Location location, String familyConnect, Mood mood){
         super(name, location, familyConnect, mood);
-        this.planLocation = planLocation;
     }
 
-    public void decidePlans(){
+    public void decidePlans(PlanLocation planLocation){
         EventBus.publish(new EventPlans(this, planLocation));
     }
 
     public void call(Human person){
         person.setLocation(this.getLocation());
-        EventBus.publish(new EventCall(person));
-    }
+        EventBus.publish(new EventCall(person));}
 
     @Override
     public boolean canReact() {

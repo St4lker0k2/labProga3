@@ -6,18 +6,17 @@ import Events.EventBus;
 import Events.EventType;
 import Locations.Location;
 import Locations.Mood;
-import Locations.PlanLocation;
 
 public final class SceneFactory {
     public static Scene create(){
-        Mother mother = new Mother("мама", Location.MALYSHS_ROOM, "", Mood.GOOD, PlanLocation.STEAMBOAT);
+        Mother mother = new Mother("мама", Location.MALYSHS_ROOM, "", Mood.GOOD);
         Father father = new Father("папа", Location.KITCHEN, "", Mood.GOOD);
         Malysh malysh = new Malysh("Малыш", Location.MALYSHS_ROOM, "меня", Mood.GOOD);
         Carlson carlson = new Carlson("Карлсон", Location.MALYSHS_ROOM, "друг", Mood.GOOD);
         Uncle uncle = new Uncle("Юлиус", Location.UNCLE_HOUSE, "дядя", Mood.GOOD);
         FrekenBok frekenBok = new FrekenBok("Фрэкен Бок", Location.STREET, "присмотрщица", Mood.GOOD);
-        Betan betan = new Betan("Бетан", Location.LIVING_ROOM, "брат", Mood.GOOD, PlanLocation.CHILDCAMP);
-        Bosse bosse = new Bosse("Боссе", Location.LIVING_ROOM, "сестра", Mood.GOOD, PlanLocation.CHILDCAMP);
+        Betan betan = new Betan("Бетан", Location.LIVING_ROOM, "брат", Mood.BAD);
+        Bosse bosse = new Bosse("Боссе", Location.LIVING_ROOM, "сестра", Mood.GOOD);
 
         Dialogue.setInterlocutors(malysh, carlson);
         EventBus.addReactor(EventType.CALL, malysh);

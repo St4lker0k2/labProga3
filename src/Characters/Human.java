@@ -14,17 +14,19 @@ public abstract class Human {
     Human(String name, Location location, String familyConnect, Mood mood) throws InvalidNameException, NullMoodException, NullLocationException {
 
         if (!validateName(name)){
-            throw new InvalidNameException(name);
-        }
+            throw new InvalidNameException(name);}
+
         this.name = name;
         this.familyConnect = familyConnect;
+
         if (location == null){
-            throw new NullLocationException(name);
-        }
+            throw new NullLocationException(name);}
+
         this.location = location;
+
         if (mood == null){
-            throw new NullMoodException(name);
-        }
+            throw new NullMoodException(name);}
+
         this.mood = mood;
     }
 

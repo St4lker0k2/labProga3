@@ -6,24 +6,25 @@ import Locations.Location;
 import Locations.Mood;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public final class EventTalk extends Event {
-    private final HashMap<Keys, Consumer<Human>> actions = new HashMap<>();
+    private final Map<KeysTalk, Consumer<Human>> actions = new HashMap<>();
     private final Mood reactSpeaker;
 
     public EventTalk(Human actor, Mood reactSpeaker) {
         super(actor, EventType.TALK);
         this.reactSpeaker = reactSpeaker;
-        actions.put(new Keys(Mood.GOOD, Mood.GOOD), this::rejoice);
-        actions.put(new Keys(Mood.BAD, Mood.GOOD), this::cheerUp);
-        actions.put(new Keys(Mood.GOOD, Mood.BAD), this::flyAway);
-        actions.put(new Keys(Mood.BAD, Mood.BAD), this::escape);
+        actions.put(new KeysTalk(Mood.GOOD, Mood.GOOD), this::rejoice);
+        actions.put(new KeysTalk(Mood.BAD, Mood.GOOD), this::cheerUp);
+        actions.put(new KeysTalk(Mood.GOOD, Mood.BAD), this::flyAway);
+        actions.put(new KeysTalk(Mood.BAD, Mood.BAD), this::escape);
     }
 
     @Override
     public void reactEvent(Human speaker) {
-        Consumer<Human> actoin = actions.getOrDefault(new Keys(reactSpeaker, speaker.getMood()), s -> {});
+        Consumer<Human> actoin = actions.getOrDefault(new KeysTalk(reactSpeaker, speaker.getMood()), null);
         actoin.accept(speaker);
     }
 

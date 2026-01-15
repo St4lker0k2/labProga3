@@ -1,4 +1,4 @@
-package Locations;
+package Characters;
 
 public enum Mood {
     GOOD,

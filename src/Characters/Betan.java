@@ -3,7 +3,6 @@ package Characters;
 import Events.EventBus;
 import Events.EventPlans;
 import Locations.Location;
-import Locations.Mood;
 import Locations.PlanLocation;
 
 public final class Betan extends Human {

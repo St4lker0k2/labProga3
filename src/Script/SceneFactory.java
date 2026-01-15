@@ -5,7 +5,7 @@ import Dialogues.Dialogue;
 import Events.EventBus;
 import Events.EventType;
 import Locations.Location;
-import Locations.Mood;
+import Characters.Mood;
 
 public final class SceneFactory {
     public static Scene create(){

@@ -3,7 +3,6 @@ import Events.EventBus;
 import Events.EventCall;
 import Events.EventPlans;
 import Locations.Location;
-import Locations.Mood;
 import Locations.PlanLocation;
 
 public final class Mother extends Human {

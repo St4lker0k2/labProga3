@@ -1,6 +1,6 @@
 package Events;
 
-import Locations.Mood;
+import Characters.Mood;
 
 public record KeysTalk(Mood moodActor, Mood moodSpeaker) {
 }

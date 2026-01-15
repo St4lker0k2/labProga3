@@ -4,7 +4,6 @@ import Dialogues.Dialogue;
 import Dialogues.Reactor;
 import Events.Event;
 import Locations.Location;
-import Locations.Mood;
 
 public final class Malysh extends Human implements Reactor {
     public Malysh(String name, Location location, String familyConnect, Mood mood) {

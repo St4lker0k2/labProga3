@@ -3,7 +3,6 @@ package Characters;
 import Dialogues.Reactor;
 import Events.Event;
 import Locations.Location;
-import Locations.Mood;
 
 public final class Carlson extends Human implements Reactor {
     public Carlson(String name, Location location, String familyConnect, Mood mood) {

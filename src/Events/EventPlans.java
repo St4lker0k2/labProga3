@@ -2,7 +2,7 @@ package Events;
 
 import Characters.Human;
 import Dialogues.Dialogue;
-import Locations.Mood;
+import Characters.Mood;
 import Locations.PlanLocation;
 import java.util.HashMap;
 import java.util.Map;

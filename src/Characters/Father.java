@@ -1,7 +1,6 @@
 package Characters;
 
 import Locations.Location;
-import Locations.Mood;
 
 public final class Father extends Human {
     public Father(String name, Location location, String familyConnect, Mood mood) {

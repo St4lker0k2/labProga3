@@ -4,7 +4,6 @@ import Exceptions.InvalidNameException;
 import Exceptions.NullLocationException;
 import Exceptions.NullMoodException;
 import Locations.Location;
-import Locations.Mood;
 
 public abstract class Human {
     private final String familyConnect;

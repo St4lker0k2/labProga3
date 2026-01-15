@@ -4,7 +4,7 @@ import Characters.FrekenBok;
 import Characters.Human;
 import Characters.Uncle;
 import Dialogues.Dialogue;
-import Locations.Mood;
+import Characters.Mood;
 
 import java.util.HashMap;
 import java.util.function.Consumer;

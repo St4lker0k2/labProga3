@@ -27,7 +27,7 @@ public final class EventCall extends Event{
 
     private void reactCaretakerCall(Human speaker){
         String text = String.format("%s: Послушай, %s, моя мама вызвала новую присмотрщицу - %s. ", speaker.getName(), Dialogue.getInterlocutor(speaker).getName(), getActor().getName())
-        + switch (speaker.getMood()){
+                + switch (speaker.getMood()){
             case Mood.GOOD -> "Жду не дождусь встречи с ней! Уверен, мы подружимся";
             case Mood.BAD -> "Я так не хочу, чтобы она приезжала. Мне кажется, что она нехороший человек";};
         System.out.println(text);

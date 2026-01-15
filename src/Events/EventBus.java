@@ -3,6 +3,7 @@ package Events;
 import Dialogues.Reactor;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public final class EventBus {
@@ -14,6 +15,6 @@ public final class EventBus {
     }
     public static void publish(Event event){
         EventLog.addEvent(event);
-        var list = subs.get(event.getEventType());
+        List<Reactor> list = subs.get(event.getEventType());
         if (list == null) return;
         for (var reactor : list) reactor.react(event);}}

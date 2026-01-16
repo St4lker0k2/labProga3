@@ -11,7 +11,7 @@ public final class EventBus {
 
     public static void addReactor(EventType eventType, Reactor... reactors) {
         for (Reactor reactor : reactors) {
-            subs.computeIfAbsent(eventType, e -> new ArrayList<>()).add(reactor);}
+            subs.computeIfAbsent(eventType, _ -> new ArrayList<>()).add(reactor);}
     }
     public static void publish(Event event){
         EventLog.addEvent(event);
@@ -19,7 +19,7 @@ public final class EventBus {
         if (list == null) return;
         for (Reactor reactor : list) reactor.react(event);}
 
-        //Промпт: Привет! Помоги реализовать на языке Java методу класса EventBus, который будет
+        //Промпт: Привет! Помоги реализовать на языке Java метод класса EventBus, который будет
         // принимать созданные в программе события типа Event, сохранять их в список, затем вызывать
         // реакцию у тех объектов, которые на него "подписаны", т.е. могут и должны на него реагировать
 
@@ -33,8 +33,8 @@ public final class EventBus {
             List<EventListener<? extends Event>> eventListeners =
                     listeners.get(event.getClass());
 
-            if (eventListeners != null) {
-                for (EventListener listener : eventListeners) {
+
+            for (EventListener listener : eventListeners) {
                     // безопасное приведение
                     listener.onEvent(event);
                 }

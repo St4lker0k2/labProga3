@@ -8,7 +8,7 @@ public record Scene(Mother mother, Uncle uncle, FrekenBok frekenBok, Betan betan
         try {
             mother.decidePlans(PlanLocation.STEAMBOAT);
             bosse.decidePlans(PlanLocation.CHILDCAMP);
-            betan.decidePlans(null);
+            betan.decidePlans(PlanLocation.HOME);
             mother.call(uncle);
             mother.call(frekenBok);
         }catch (NullPointerException e){

@@ -1,0 +1,109 @@
+@startuml
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+
+package Script {
+    class App {
+        +main(args: String[]): void
+    }
+
+    class Scene
+    class SceneFactory
+}
+
+App --> Scene
+SceneFactory --> Scene
+
+' =======================
+' CHARACTERS
+' =======================
+package Characters {
+    abstract class Human
+
+    class Carlson
+    class Malysh
+    class Mother
+    class Father
+    class Betan
+    class Bosse
+    class FrekenBok
+    class Uncle
+}
+
+Human <|-- Carlson
+Human <|-- Malysh
+Human <|-- Mother
+Human <|-- Father
+Human <|-- Betan
+Human <|-- Bosse
+Human <|-- FrekenBok
+Human <|-- Uncle
+
+' =======================
+' EVENTS
+' =======================
+package Events {
+    class Event
+    class EventBus
+    class EventCall
+    class EventTalk
+    class EventPlans
+    class EventEscape
+    class EventLog
+
+    enum EventType
+}
+
+Event <|-- EventCall
+Event <|-- EventTalk
+Event <|-- EventPlans
+Event <|-- EventEscape
+Event <|-- EventLog
+
+EventBus --> Event
+Event --> EventType
+
+' =======================
+' DIALOGUES
+' =======================
+package Dialogues {
+    class Dialogue
+    class Reactor
+}
+
+Dialogue --> Reactor
+
+' =======================
+' LOCATIONS
+' =======================
+package Locations {
+    enum Location
+    class PlanLocation
+    enum Mood
+}
+
+Location <|-- PlanLocation
+Location --> Mood
+
+' =======================
+' EXCEPTIONS
+' =======================
+package Exceptions {
+    class InvalidNameException
+    class NullLocationException
+    class NullMoodException
+}
+
+InvalidNameException --|> Exception
+NullLocationException --|> Exception
+NullMoodException --|> Exception
+
+' =======================
+' CROSS-PACKAGE LINKS
+' =======================
+Scene --> Human
+Scene --> Event
+Scene --> Location
+Event --> Human
+
+@enduml

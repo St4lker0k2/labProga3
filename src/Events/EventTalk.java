@@ -4,7 +4,6 @@ import Characters.Human;
 import Dialogues.Dialogue;
 import Locations.Location;
 import Characters.Mood;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -48,7 +47,7 @@ public final class EventTalk extends Event {
     }
 
     private void rejoice(Human speaker) {
-        System.out.printf("%s: Ого! Как это классно! Я тоже рад приезду новой присмотрщицы. Вместе мы будем веселиться и играть день и ночи " +
+        System.out.printf("%s: Ого! Как это классно! Я тоже рад приезду новой присмотрщицы. Вместе мы будем веселиться и играть день и ночи. " +
                 "Какая это хорошая новость, мой друг", speaker.getName());
     }
 }

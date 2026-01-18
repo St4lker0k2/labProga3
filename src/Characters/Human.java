@@ -8,7 +8,7 @@ import Locations.Location;
 public abstract class Human {
     private final String familyConnect;
     private final String name;
-    private final Mood mood;
+    private Mood mood;
     private Location location;
     Human(String name, Location location, String familyConnect, Mood mood) throws InvalidNameException, NullMoodException, NullLocationException {
 
@@ -33,7 +33,17 @@ public abstract class Human {
 
     public void setLocation(Location location) {this.location = location;}
 
+    public Mood getMood(){
+        return mood;
+    }
+
+    public void setMood(Mood mood) {this.mood = mood;}
+
     public String getName(){return name;}
+
+    public String getFamilyConnect() {
+        return familyConnect;
+    }
 
     public abstract boolean canReact();
 
@@ -58,10 +68,4 @@ public abstract class Human {
         return this.getName().equals(human.getName());
     }
 
-    public String getFamilyConnect() {
-        return familyConnect;
-    }
-    public Mood getMood(){
-        return mood;
-    }
 }

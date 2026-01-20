@@ -8,6 +8,7 @@ public class CommandProcessor {
 
     public CommandProcessor(){
         commands.put("set", new SetCommand());
+        commands.put("help", new HelpCommand(commands));
     }
     public String process(String input, GameState state){
         String[] parts = input.split("\\s+");

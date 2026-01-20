@@ -7,7 +7,7 @@ public record ConsoleInterface(Scanner scanner, CommandProcessor commandProcesso
 
     public void run(List<Runnable> steps, GameState state) {
         for (Runnable step : steps) {
-            System.out.println("Введите команды или 'continue'");
+            System.out.println("\nВведите команды (воспользуйтесь командой help для вывода списка доступных команд)\nили введите 'continue' для продолжения сюжета");
             while (true) {
                 System.out.println("> ");
                 String input = scanner.nextLine();

@@ -8,7 +8,7 @@ public class SetCommand implements Command{
     @Override
     public String execute(String[] args, GameState state) {
         if (args.length < 4){
-            return("Использование команды: set <name> <field> <value>");
+            return("Команда распознана, но принимает недостаточное кол-во параметров");
         }
         Human character = state.getCharacter(args[1]);
         if (character == null){
@@ -26,9 +26,14 @@ public class SetCommand implements Command{
                     character.setLocation(Location.valueOf(value.toUpperCase()));
                     return String.format("Позиция %s успешно изменено на %s", character.getName(), value);
                 }
-                default -> {return ("Нераспознанная команда");}}
+                default -> {return ("Команда распознана, персонаж найден, но введённое поле у персонажа не обнаружено или не может быть изменено");}}
         }catch (IllegalArgumentException e){
             return ("Несуществующее значение");
         }
+    }
+
+    @Override
+    public String describe() {
+        return "Вид команды: set <name> <field> <value>\nОписание: заменит поле field у персонажа name на значение value";
     }
 }

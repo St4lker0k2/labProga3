@@ -2,7 +2,7 @@ package Script;
 
 import java.util.Map;
 
-public class HelpCommand implements Command{
+public final class HelpCommand implements Command{
     private final Map<String, Command> commandMemory;
     public HelpCommand(Map<String, Command> commands) {
         this.commandMemory = commands;

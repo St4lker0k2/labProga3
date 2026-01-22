@@ -4,10 +4,10 @@ import Characters.Human;
 import Characters.Mood;
 import Locations.Location;
 
-public class SetCommand implements Command{
+public final class SetCommand implements Command{
     @Override
     public String execute(String[] args, GameState state) {
-        if (args.length < 4){
+        if (args.length != 4){
             return("Команда распознана, но принимает недостаточное кол-во параметров");
         }
         Human character = state.getCharacter(args[1]);

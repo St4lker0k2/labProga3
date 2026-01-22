@@ -3,11 +3,12 @@ package Script;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommandProcessor {
+public final class CommandProcessor {
     private final Map<String, Command> commands = new HashMap<>();
 
     public CommandProcessor(){
         commands.put("set", new SetCommand());
+        commands.put("get", new GetCommand());
         commands.put("help", new HelpCommand(commands));
     }
     public String process(String input, GameState state){

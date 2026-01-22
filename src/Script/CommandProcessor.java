@@ -3,7 +3,7 @@ package Script;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommandProcessor {
+public final class CommandProcessor {
     private final Map<String, Command> commands = new HashMap<>();
 
     public CommandProcessor(){

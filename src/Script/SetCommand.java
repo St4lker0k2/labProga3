@@ -4,7 +4,7 @@ import Characters.Human;
 import Characters.Mood;
 import Locations.Location;
 
-public class SetCommand implements Command{
+public final class SetCommand implements Command{
     @Override
     public String execute(String[] args, GameState state) {
         if (args.length < 4){

@@ -18,6 +18,7 @@ public class GetCommand implements Command{
             case "location" -> {return character.getLocation().getNameLocation();
             }
             case "familyconnect" -> {return character.getFamilyConnect();}
+            case "name" -> {return "вы шутите, да?";}
             default -> {return ("Команда распознана, персонаж найден, но введённое " +
                     "поле у персонажа не обнаружено или не может быть изменено или у вас нет доступа к этому параметру");}}
     }
